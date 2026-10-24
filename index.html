@@ -59,9 +59,13 @@ h1 em{font-style:normal;color:var(--acc)}
 .hf span{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
 .hbtns{display:flex;gap:12px;flex-wrap:wrap}
 /* SVG сцена: ковш грузит самосвал */
-.scene{border:1px solid var(--line);border-radius:14px;background:var(--bg2);padding:14px;position:relative}
-.scene svg{width:100%;height:auto;display:block}
-.scene .cap{position:absolute;top:16px;left:20px;font-size:10.5px;letter-spacing:.2em;color:var(--mut);text-transform:uppercase}
+.hphoto{position:relative;margin:0}
+.hphoto .cap{position:absolute;top:14px;left:16px;font-size:10.5px;letter-spacing:.2em;color:#fff;text-transform:uppercase;z-index:2;background:rgba(16,17,20,.72);padding:5px 9px;border-left:3px solid var(--acc)}
+.hframe{border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative}
+.hframe img{width:100%;height:auto;display:block;transform:scale(1.02);transition:transform .8s ease}
+.hphoto:hover .hframe img{transform:scale(1.07)}
+.hphoto figcaption{font-size:12.5px;color:var(--mut);line-height:1.55;margin-top:10px;padding:0 4px}
+.hphoto figcaption b{color:var(--ink)}
 /* калькулятор рейсов */
 .calc{background:var(--pan);border:1px solid var(--line);border-radius:16px;padding:26px;margin-top:34px;position:relative}
 .calc .cap{position:absolute;top:14px;right:18px;font-size:10px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
@@ -194,50 +198,11 @@ body:not(.js) .fx{opacity:1;transform:none}
         <a href="tel:+375445332684" class="btn btn-out">+375 44 533-26-84</a>
       </div>
     </div>
-    <div class="scene">
-      <span class="cap">КОВШ → САМОСВАЛ · 20 М³</span>
-      <svg viewBox="0 0 640 420" fill="none" aria-label="Схема: погрузчик грузит самосвал">
-        <rect width="640" height="420" fill="#1F2024"/>
-        <rect x="0" y="356" width="640" height="64" fill="#1B1C20"/>
-        <line x1="0" y1="356" x2="640" y2="356" stroke="#34363C" stroke-width="2"/>
-        <!-- разрушаемое здание слева -->
-        <g id="bldg">
-          <rect x="40" y="180" width="130" height="176" fill="#26272C" stroke="#4A4D55" stroke-width="2.4"/>
-          <path d="M40 180 L105 138 L170 180" fill="none" stroke="#4A4D55" stroke-width="2.4"/>
-          <rect x="62" y="210" width="26" height="34" fill="#101114"/>
-          <rect x="112" y="210" width="26" height="34" fill="#101114"/>
-          <rect x="62" y="270" width="26" height="86" fill="#101114"/>
-          <path d="M70 180 l30 26 M100 138 l-14 42 M130 160 l16 20" stroke="#E8501E" stroke-width="2" stroke-dasharray="3 4"/>
-        </g>
-        <!-- гора мусора -->
-        <path id="debris" d="M150 356 Q190 316 235 356 Z" fill="#3A3C42"/>
-        <!-- фронтальный погрузчик -->
-        <g id="loader">
-          <rect x="232" y="268" width="88" height="52" rx="10" fill="#26272C" stroke="#E8501E" stroke-width="2.4"/>
-          <rect x="240" y="278" width="30" height="22" rx="3" fill="#E8501E" opacity=".5"/>
-          <rect x="244" y="240" width="40" height="30" rx="5" fill="#26272C" stroke="#E8501E" stroke-width="2"/>
-          <rect x="278" y="216" width="26" height="26" rx="4" fill="#26272C" stroke="#E8501E" stroke-width="2" transform="rotate(35 291 229)"/>
-          <circle cx="252" cy="328" r="16" fill="#101114" stroke="#E8501E" stroke-width="2.4"/>
-          <circle cx="300" cy="328" r="16" fill="#101114" stroke="#E8501E" stroke-width="2.4"/>
-          <text x="262" y="264" fill="#9BA0A8" font-size="9" font-family="monospace">3,5 м³</text>
-        </g>
-        <!-- самосвал справа -->
-        <g id="truck">
-          <rect x="380" y="212" width="170" height="70" rx="12" fill="#26272C" stroke="#8FD14F" stroke-width="2.4"/>
-          <rect id="load" x="388" y="276" width="154" height="0" fill="#8FD14F" opacity=".5"/>
-          <path d="M550 282 L550 240 L584 240 L596 268 L596 282 Z" fill="#26272C" stroke="#8FD14F" stroke-width="2.4"/>
-          <rect x="556" y="246" width="24" height="16" rx="2" fill="#8FD14F" opacity=".45"/>
-          <circle cx="424" cy="328" r="17" fill="#101114" stroke="#8FD14F" stroke-width="2.4"/>
-          <circle cx="492" cy="328" r="17" fill="#101114" stroke="#8FD14F" stroke-width="2.4"/>
-          <circle cx="580" cy="328" r="15" fill="#101114" stroke="#8FD14F" stroke-width="2.4"/>
-          <text x="452" y="206" fill="#9BA0A8" font-size="9.5" font-family="monospace">20 м³ / 20 т</text>
-        </g>
-        <!-- траектория ковша -->
-        <path id="arc" d="M290 229 Q340 150 430 216" stroke="#E8501E" stroke-width="2" stroke-dasharray="5 6" fill="none" opacity="0"/>
-        <text x="20" y="34" fill="#9BA0A8" font-size="11" font-family="monospace">ДЕМОНТАЖ → ПОГРУЗКА → ВЫВОЗ · СОБСТВЕННАЯ ТЕХНИКА</text>
-        <text id="scnt" x="620" y="34" fill="#E8501E" font-size="20" font-weight="700" text-anchor="end" font-family="monospace">0%</text>
-      </svg>
-    </div>
+    <figure class="hphoto">
+      <span class="cap">НАША ТЕХНИКА · КАРЬЕР</span>
+      <div class="hframe"><img src="assets/hero.jpg" alt="Фронтальный погрузчик грузит песок в самосвал на песчаном карьере" loading="eager"></div>
+      <figcaption>Погрузчик с ковшом <b>3,5 м³</b> и самосвал <b>20 м³ / 20 т</b> — та самая связка, что приедет на ваш объект</figcaption>
+    </figure>
   </div>
 
   <div class="calc" id="calc">
@@ -431,40 +396,13 @@ body:not(.js) .fx{opacity:1;transform:none}
     E('rtons').textContent=tons+' т';
   }
   /* render(q): 0..1 — визуальный цикл погрузки (q=0 пусто, 1 полный самосвал) */
-  function render(q){
-    q=Math.max(0,Math.min(1,q));
-    var loadH=64*q;
-    var load=E('load');
-    load.setAttribute('height',loadH.toFixed(1));
-    load.setAttribute('y',(276-loadH).toFixed(1));
-    E('scnt').textContent=Math.round(q*100)+'%';
-    E('arc').setAttribute('opacity',q>0.05&&q<0.98?String(Math.min(1,q*2)):'0');
-    var d=Math.round(46*q);
-    E('debris').setAttribute('d','M150 356 Q'+(190-40*q)+' '+(316-20*q)+' '+(235-70*q)+' 356 Z');
-    /* стадия демонтажа: штрихи на здании */
-    var bldg=E('bldg');bldg.style.opacity=String(1-q*0.85);
-  }
-  /* автоцикл сцены: 0 → 1 → пауза → заново (когда видна) */
-  var ph=0,t0=Date.now(),running=false,playing=true;
-  function tick(){
-    if(!running)return;
-    if(!playing)return;
-    var now=Date.now();
-    var CYC=5200,HOLD=2600;
-    if(ph===0){var q=(now-t0)/CYC;if(q>=1){render(1);ph=1;t0=now}else render(q)}
-    else{if(now-t0>HOLD){ph=0;t0=now}}
-  }
-  setInterval(tick,40);
-  setInterval(function(){
-    var r=document.querySelector('.scene').getBoundingClientRect();
-    running=(r.top<(window.innerHeight||800)&&r.bottom>0);
-  },500);
+  /* API для проверок: render(q) гоняет калькулятор по прогрессу */
   if(sl){
     sl.addEventListener('input',function(){V.v=+sl.value;calc()});
   }
   /* API для проверок */
   window.__wow={
-    render:function(q){render(q);return true},
+    render:function(q){q=Math.max(0,Math.min(1,q));V.v=Math.round(5+q*395);if(sl)sl.value=V.v;calc();return true},
     setVolume:function(v){V.v=Math.max(5,Math.min(400,v));if(sl)sl.value=V.v;calc();return{v:V.v,buckets:Math.ceil(V.v/3.5),trips:Math.ceil(V.v/20),tons:V.v}},
     togglePlay:function(s){if(typeof s==='boolean')playing=s;else playing=!playing;return playing}
   };
